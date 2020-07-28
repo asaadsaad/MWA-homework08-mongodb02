@@ -1,0 +1,59 @@
+DELETE http://localhost:3000/clear HTTP/1.1
+
+###
+POST http://localhost:3000/fill HTTP/1.1
+content-type: application/json
+
+{
+    "_id":1,
+    "teachers": [
+        {"_id":1, "name":"Asaad"},
+        {"_id":2, "name":"Umur"}
+    ],
+    "courses":[
+        {"_id":1, "students":[
+            {"_id":1, "name":"John"},
+            {"_id":2, "name":"Selin"}
+        ]},
+        {"_id":2, "students":[
+            {"_id":1, "name":"John"},
+            {"_id":2, "name":"Selin"}
+        ]},
+        {"_id":3, "students":[
+            {"_id":1, "name":"John"},
+            {"_id":2, "name":"Selin"}
+        ]}
+    ]
+}
+###
+GET http://localhost:3000
+
+###
+POST http://localhost:3000/schools/1/teacher HTTP/1.1
+content-type: application/json
+
+{ "_id": 3, "name": "Keith" } 
+###
+
+PATCH http://localhost:3000/schools/1/teacher/2 HTTP/1.1
+content-type: application/json
+
+{ "name": "Keith Levi" } 
+
+###
+DELETE http://localhost:3000/schools/1/teacher/2 HTTP/1.1
+
+###
+POST http://localhost:3000/schools/1/course/2 HTTP/1.1
+content-type: application/json
+
+{ "_id": 3, "name": "Fathi" } 
+###
+
+PATCH http://localhost:3000/schools/1/course/2/3 HTTP/1.1
+content-type: application/json
+
+{ "name": "Fathi Aswad" } 
+
+###
+DELETE http://localhost:3000/schools/1/courses/2/3 HTTP/1.1
