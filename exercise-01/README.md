@@ -1,4 +1,3 @@
-# CS571-Homework-02
 ## Rich MongoDB Documents Exercise
 Please find below an Express application that connects to a local MongoDB instance, each document has the following structure for `schools` collection:
 ```JavaScript
