@@ -72,13 +72,13 @@ app.post('/schools/:school_id/courses/:course_id', async (req, res) => {
 
 
 // Update a student's name
-app.patch('/schools/:school_id/courses/:course_id/:student_id', async (req, res) => {
+app.patch('/schools/:school_id/courses/:course_id/students/:student_id', async (req, res) => {
     // YOUR QUERY HERE  
     req.db.find({}).toArray((err, data) => res.json(data))
 })
 
 // Delete a student
-app.delete('/schools/:school_id/courses/:course_id/:student_id', async (req, res) => {
+app.delete('/schools/:school_id/courses/:course_id/students/:student_id', async (req, res) => {
     // YOUR QUERY HERE
     req.db.find({}).toArray((err, data) => res.json(data))
 })
