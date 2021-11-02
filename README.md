@@ -10,16 +10,16 @@ Please find below an Express application that connects to a local MongoDB instan
     ],
     "courses":[
         {"_id":1, "students":[
-            {"_id":1, "name":"John"},
-            {"_id":2, "name":"Selin"}
+            {"_id":1, "name":"Keith"},
+            {"_id":2, "name":"Clyde"}
         ]},
         {"_id":2, "students":[
-            {"_id":1, "name":"John"},
-            {"_id":2, "name":"Selin"}
+            {"_id":1, "name":"Bruce"},
+            {"_id":2, "name":"Paul"}
         ]},
         {"_id":3, "students":[
-            {"_id":1, "name":"John"},
-            {"_id":2, "name":"Selin"}
+            {"_id":1, "name":"Mrudula"},
+            {"_id":2, "name":"Renuka"}
         ]}
     ]
 }
