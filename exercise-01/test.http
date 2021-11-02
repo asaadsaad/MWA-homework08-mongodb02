@@ -29,31 +29,31 @@ content-type: application/json
 GET http://localhost:3000
 
 ###
-POST http://localhost:3000/schools/1/teacher HTTP/1.1
+POST http://localhost:3000/schools/1/teachers HTTP/1.1
 content-type: application/json
 
 { "_id": 3, "name": "Keith" } 
 ###
 
-PATCH http://localhost:3000/schools/1/teacher/2 HTTP/1.1
+PATCH http://localhost:3000/schools/1/teachers/2 HTTP/1.1
 content-type: application/json
 
 { "name": "Keith Levi" } 
 
 ###
-DELETE http://localhost:3000/schools/1/teacher/2 HTTP/1.1
+DELETE http://localhost:3000/schools/1/teachers/2 HTTP/1.1
 
 ###
-POST http://localhost:3000/schools/1/course/2 HTTP/1.1
+POST http://localhost:3000/schools/1/courses/2 HTTP/1.1
 content-type: application/json
 
 { "_id": 3, "name": "Fathi" } 
 ###
 
-PATCH http://localhost:3000/schools/1/course/2/3 HTTP/1.1
+PATCH http://localhost:3000/schools/1/courses/2/students/3 HTTP/1.1
 content-type: application/json
 
 { "name": "Fathi Aswad" } 
 
 ###
-DELETE http://localhost:3000/schools/1/courses/2/3 HTTP/1.1
+DELETE http://localhost:3000/schools/1/courses/2/students/3 HTTP/1.1
