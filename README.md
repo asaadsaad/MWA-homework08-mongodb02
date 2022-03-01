@@ -6,7 +6,7 @@ Please find below an Express application that connects to a local MongoDB instan
     "_id":1,
     "teachers": [
         {"_id":1, "name":"Asaad"},
-        {"_id":2, "name":"Umur"}
+        {"_id":2, "name":"Unubold"}
     ],
     "courses":[
         {"_id":1, "students":[
