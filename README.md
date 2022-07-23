@@ -1,8 +1,8 @@
 # MWA - Homework 06 - Mongodb
-## Exercise 01
+## Exercise 00
 Update the previous homework and use MongoDB for persisting the students list. Use Mongoose to create a `Student` Model.
 
-## Exercise 02
+## Exercise 01
 Please find below an Express application that connects to a local MongoDB instance, each document has the following structure for `schools` collection:
 ```JavaScript
 {
@@ -37,7 +37,7 @@ Your are responsible on completing the code *(after line 50)* for 6 MongoDB quer
   
 Notice the `test.http` file which contains a test HTTP Client, and works with [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension in VSCode.
   
-## Exercise 03
+## Exercise 02
 Considering the following MongoDB schema for `exercise3` collection:
 ```javascript
 { name, category, location: [longitude, latitude]}
