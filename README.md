@@ -1,4 +1,4 @@
-# MWA - Homework 06 - Mongodb
+# MWA - Homework - Mongodb
 ## Exercise 01
 Update the previous homework and use MongoDB for persisting the students list. Use Mongoose to create a `Student` Model.
 
