@@ -1,6 +1,6 @@
 # MWA - Homework - Mongodb
 ## Exercise 01
-Update the previous homework and use MongoDB for persisting the students list. Use Mongoose to create a `Student` Model.
+Update the previous homework and use MongoDB for persisting the data in a collection (use Mongoose).
 
 ## Exercise 02
 Please find below an Express application that connects to a local MongoDB instance, each document has the following structure for `schools` collection:
