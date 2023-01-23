@@ -2,42 +2,7 @@
 ## Exercise 01
 Update the previous homework and use MongoDB for persisting the data in a collection (use Mongoose).
 
-## Exercise 02
-Please find below an Express application that connects to a local MongoDB instance, each document has the following structure for `schools` collection:
-```JavaScript
-{
-    "_id":1,
-    "teachers": [
-        {"_id":1, "name":"Asaad"},
-        {"_id":2, "name":"Unubold"}
-    ],
-    "courses":[
-        {"_id":1, "students":[
-            {"_id":1, "name":"Keith"},
-            {"_id":2, "name":"Clyde"}
-        ]},
-        {"_id":2, "students":[
-            {"_id":1, "name":"Bruce"},
-            {"_id":2, "name":"Paul"}
-        ]},
-        {"_id":3, "students":[
-            {"_id":1, "name":"Mrudula"},
-            {"_id":2, "name":"Renuka"}
-        ]}
-    ]
-}
-```
-Your are responsible on completing the code *(after line 50)* for 6 MongoDB queries within 6 pre-defined routes in `app.js` file:
-1. Add teacher *(level 1)*
-2. Update teacher by ID *(level 1)*
-3. Delete teacher by ID *(level 1)*
-4. Add a new student to specific course *(level 2)*
-5. Update a student's name *(level 2)*
-6. Delete a student *(level 2)*
-  
-Notice the `test.http` file which contains a test HTTP Client, and works with [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension in VSCode.
-  
-## Exercise 03 (Optional)
+## Exercise 02 (Optional)
 Considering the following MongoDB schema for `exercise3` collection:
 ```javascript
 { name, category, location: [longitude, latitude]}
