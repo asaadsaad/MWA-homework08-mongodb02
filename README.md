@@ -2,7 +2,7 @@
 ## Exercise 01
 Update the previous homework and use MongoDB for persisting the data in a collection (use Mongoose).
 
-## Exercise 02 (Optional)
+## MongoDB Geospacial Exercise (Optional)
 Considering the following MongoDB schema for `geolocation` collection:
 ```javascript
 { name, category, location: [longitude, latitude]}
