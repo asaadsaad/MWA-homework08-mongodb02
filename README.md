@@ -1,6 +1,6 @@
 # MWA - Homework - Mongodb
 ## Exercise 01
-Update the previous homework and use MongoDB for persisting the data in a collection (use Mongoose).
+Update the previous homework and use MongoDB for persisting the data in a collection (use Mongoose). Keep in mind that MongoDB uses `_id` property instead of `id` with `ObjectId` data type.
 
 ## MongoDB Geospacial Exercise (Optional)
 Considering the following MongoDB schema for `geolocation` collection:
