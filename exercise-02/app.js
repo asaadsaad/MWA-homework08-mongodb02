@@ -1,8 +1,18 @@
 const express = require('express');
-const MongoClient = require('mongodb').MongoClient;
-const client = new MongoClient('mongodb://localhost:27017', { useNewUrlParser: true, useUnifiedTopology: true });
+const { MongoClient } = require('mongodb');
+const client = new MongoClient('mongodb://127.0.0.1:27017', { useUnifiedTopology: true, useNewUrlParser: true });
 let db;
-
+(async function () {
+    try {
+        await client.connect()
+        await client.db("rich").command({ ping: 1 });
+        console.log("Connected successfully to DB server");
+        db = await client.db('rich');
+    } catch (e) {
+        console.log(e)
+        process.exit(0)
+    }
+})()
 const app = express();
 
 //////////////////////////////////////
@@ -11,15 +21,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
-    if (!db) {
-        client.connect(function (err) {
-            db = client.db('rich');
-            req.db = db.collection('schools');
-            next();
-        });
-    } else {
-        req.db = db.collection('schools');
+    if (db) {
+        req.db = db.collection('rich');
         next();
+    } else {
+        next(new Error(`No Database`))
     }
 })
 ////////////// DO NOT TOUCH //////////
@@ -92,3 +98,7 @@ app.use(function (err, req, res, next) {
 });
 
 app.listen(3000, () => console.log('listening to 3000'));
+
+process.on('exit', () => {
+    client.close()
+})
