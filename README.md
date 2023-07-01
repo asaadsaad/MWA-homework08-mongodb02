@@ -1,6 +1,25 @@
 # MWA - Homework - Mongodb
 ## Exercise
-Update the previous homework and use MongoDB for persisting the data in a collection (use Mongoose). Keep in mind that MongoDB uses `_id` property with `ObjectId` data type.
+Considering the following interfaces:
+```typescript
+interface IFaculty { name: IName, email: string, password: string }
+interface ICourse { code: string, title: string, students: IStudent[] }
+interface IStudent { name: IName, exams: IExam[] }
+interface IName { first: string, last: string }
+interface IExam { date: number, grade: number }
+```
+Design a Restful API using Express, Mongosee, and TypeScript for the following entities:
+* CRUD faculty + signin/signup
+* CRUD courses
+* CRUD students
+* CRUD exams
+
+**Notes:**
+* All `GET` requests must be paginated, use a page size of 5. Use `$slice` projection operator to paginate over arrays.
+* All `PATCH` requests must partially update an entity.
+* All results must be sorted from newest to oldest.
+* Queries must be projected to only return the requested information.
+* In most cases, the DB server must prepare the results and Node must not manipulate the results. If you neeUse child process when applicable.
 
 ## MongoDB Geospacial Exercise (Extra)
 Considering the following MongoDB schema for `geolocation` collection:
