@@ -1,4 +1,4 @@
-# MWA - Homework - Mongodb
+## MWA - Homework - Mongodb
 ## Exercise
 Considering the following interfaces (add _id when applicable):
 ```typescript
