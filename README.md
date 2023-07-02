@@ -17,7 +17,7 @@ const courses = [
     _id: ObjectId("507f191e810c19729de860ea"),
     code: "CS572",
     title: "Modern Web Application",
-    teacher: { teacher_id: ObjectId("507f1f77bcf86cd799439011"), name: { first: "Asaad", last: "Saad" }, email: "asaad@miu.edu" },
+    created_by: { user_id: ObjectId("507f1f77bcf86cd799439011"), name: { first: "Asaad", last: "Saad" }, email: "asaad@miu.edu" },
     lectures: [
        { title: "MongoDB part 1",
          description: "In this lecture you will learn main concepts of NoSQL databases and how to perform CRUD operations with Mongoose",
