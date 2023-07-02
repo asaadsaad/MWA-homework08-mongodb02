@@ -1,7 +1,7 @@
 ## MWA - Homework - MongoDB
 Given the two models `users` and `courses`. And another two sub-schemas of `lectures` and `questions`.
     
-<ins>Design and Implement a Restful API using Express, Mongoose, and TypeScript for the following entities:</ins>
+<ins>Part 1: Design and Implement a Restful API using Express, Mongoose, and TypeScript for the following entities:</ins>
 * Public `POST /auth/signup` route to add a new user (use `bcrypt` and `jsonwebtoken` to hash the password and generate a JWT).
 * Public `POST /auth/signin` route to verify the user credentials (return JWT).
 * Public `PUT /auth/password` route to change the password (return number of updated documents).
@@ -10,7 +10,7 @@ Given the two models `users` and `courses`. And another two sub-schemas of `lect
 ```diff
 - READ QUERY AND RESPONSE REQUIREMENTS BELOW
 ```
-<ins>Implement CRUD operations on the following private entities:</ins>
+<ins>Part 2: Implement CRUD operations on the following private entities:</ins>
    * CRUD `courses`
       * add a new course (`code` and `title`). Fill out the `created_by` property from the JWT.
       * get paginated courses sorted from newest to oldest, without any `lectures` details.
@@ -30,7 +30,7 @@ Given the two models `users` and `courses`. And another two sub-schemas of `lect
       * update one question (`title` and `due_date`).
       * delete one question by ID. 
    
-<ins>Geospacial implmentation:</ins>
+<ins>Part 3: Geospacial implmentation:</ins>
 * Implement a route to find the nearest 10 users that match a certain set of hobbies. You will need to create a `2d` and `text` indexes.
 ```diff
 - QUERY AND RESPONSE REQUIREMENTS
