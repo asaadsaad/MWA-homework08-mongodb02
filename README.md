@@ -6,8 +6,11 @@ Given the models for two schemas: `users` and `courses`. And the sub-schema of `
 * Public `POST /auth/signin` route to verify the user credentials (return JWT).
 * Public `PUT /auth/password` route to change the password (return number of updated documents).
 * Create a middleware to verify all <ins>private</ins> requests. Decrypt the JWT token, assign the token details to `req.body['token_data']`.
-   
-<ins>Implement CRUD operations on the following private entities <span style="color: red">(READ QUERY AND RESPONSE REQUIREMENTS BELOW)</span>:</ins>
+
+```diff
+- READ QUERY AND RESPONSE REQUIREMENTS BELOW
+```
+<ins>Implement CRUD operations on the following private entities:</ins>
    * CRUD `courses`
       * add a new course (`code` and `title`). Fill out the `created_by` property from the JWT.
       * get paginated courses sorted from newest to oldest, without any `lectures` details.
@@ -29,10 +32,11 @@ Given the models for two schemas: `users` and `courses`. And the sub-schema of `
    
 <ins>Geospacial implmentation:</ins>
 * Implement a route to find the nearest 10 users that match a certain set of hobbies. You will need to create a `2d` and `text` indexes.
-  
-**QUERY AND RESPONSE REQUIREMENTS:**
+```diff
+- QUERY AND RESPONSE REQUIREMENTS
+```
 * Only authenticated users may send requests to the <ins>private</ins> routes.
-* Only the user who created the course should be able to perform CUD operations on `courses` and `lectures` and `questions`. However, anyone can read the data.
+* Only the user who created the course should be able to perform `Create`/`Update`/`Delete` operations on `courses` and `lectures` and `questions`. However, anyone can `Read` the data.
 * `GET` results must always be paginated.
 * The standard response signature is `interface IResponse<T>{ success: boolean, results: T }`. Where `<T>` represents the returned type as follows:
    * `GET` all, must return `Entity[]` (with pagination).
