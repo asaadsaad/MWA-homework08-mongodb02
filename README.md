@@ -1,5 +1,4 @@
-## MWA - Homework - Mongodb
-## Exercise
+## MWA - Homework - MongoDB
 Considering the following interfaces (add _id when applicable):
 ```typescript
 interface IUser { name: IName, email: string, password: string, location: number[], hobbies: string[] }
