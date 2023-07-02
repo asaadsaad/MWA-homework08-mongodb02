@@ -1,15 +1,7 @@
 ## MWA - Homework - MongoDB
-Considering the following interfaces (add _id when applicable):
+Considering the following two schemas: `users` and `courses`. Example of the data:
 ```typescript
-interface IUser { name: IName, email: string, password: string, location: number[], hobbies: string[] }
-interface ICourse { code: string, title: string, teacher: { name: IName, email: string }, lectures: ILecture[] }
-interface ILecture { title: string, description: string, file_url: string, questions: IQuestion[] }
-interface IQuestion { question: string, due_date: number }
-interface IName { first: string, last: string }
-```
-The above interfaces manifest in two schemas: `teachers` and `courses`. Example of the data:
-```typescript
-const teachers = [
+const users = [
    {
     _id: ObjectId("507f1f77bcf86cd799439011"),
     name: { first: "Asaad", last: "Saad" },
