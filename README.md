@@ -33,9 +33,9 @@ const courses = [
 ```  
 Design and Implement a Restful API using Express, Mongoose, and TypeScript for the following entities:
 * Public `POST /auth/signup` route to add a new faculty (use `bcrypt` and `jsonwebtoken` to hash the password and generate a JWT).
-* Public `POST /auth/signin` route to verify faculty credentials.
-* Public `PUT /auth/password` route to change the password.
-* Create a middleware that verifies all <ins>private</ins> requests.
+* Public `POST /auth/signin` route to verify faculty credentials (return JWT).
+* Public `PUT /auth/password` route to change the password (return number of updated documents).
+* Create a middleware that verifies all <ins>private</ins> requests, decrypt the JWT token, assign the token data to the `req.body['token_data']` object.
 * Implement CRUD operations on the following <ins>private</ins> entities:
    * CRUD `courses`
    * CRUD `lectures`
