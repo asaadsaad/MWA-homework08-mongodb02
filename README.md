@@ -46,10 +46,10 @@ Design and Implement a Restful API using Express, Mongoose, and TypeScript for t
 * Only the user who created the course should be able to perform CRUD operations on `lectures` and `questions`, 
 * `GET` results must be paginated (use `$slice` projection operator to paginate over arrays), and sorted from newest to oldest.
 * The standard response signature is `interface IResponse<T>{ success: boolean, results: T }`. Where `<T>` represents the returned type as follows:
-   * `GET` all, must return IEntity[] (with pagination).
-   * `GET` one, must return IEntity.
-   * `POST` returns a string represent the ObjectId of the newly added object.
-   * `PUT` returns a number of how many documents were updated.
-   * `DELETE` returns a number of how many documents were deleted.
+   * `GET` all, must return `IEntity[]` (with pagination).
+   * `GET` one, must return `IEntity`.
+   * `POST` returns a `string` represents the `ObjectId` of the newly added object.
+   * `PUT` returns a `number` of how many documents were updated.
+   * `DELETE` returns a `number` of how many documents were deleted.
    * Use child process when applicable.
   
