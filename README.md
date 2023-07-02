@@ -1,5 +1,5 @@
 ## MWA - Homework - MongoDB
-Given the models for two schemas: `users` and `courses`. And the sub-schema of `lectures` and `questions`.
+Given the two models `users` and `courses`. And another two sub-schemas of `lectures` and `questions`.
     
 <ins>Design and Implement a Restful API using Express, Mongoose, and TypeScript for the following entities:</ins>
 * Public `POST /auth/signup` route to add a new user (use `bcrypt` and `jsonwebtoken` to hash the password and generate a JWT).
