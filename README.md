@@ -30,7 +30,7 @@ Given the two models `users` and `courses`. And another two sub-schemas of `lect
       * update one question (`title` and `due_date`).
       * delete one question by ID. 
    
-<ins>Part 3: Geospacial implmentation:</ins>
+<ins>Part 3: Geospacial implementation:</ins>
 * Implement a route to find the nearest 10 users that match a certain set of hobbies. You will need to create a `2d` and `text` indexes.
 ```diff
 - QUERY AND RESPONSE REQUIREMENTS
