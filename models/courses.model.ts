@@ -1,5 +1,5 @@
 import { Types, InferSchemaType, Schema, model } from 'mongoose';
-import { lectureSchema } from '../lectures/lectures.model';
+import { lectureSchema } from './lectures.schema';
 
 const courseSchema = new Schema({
     code: String,
