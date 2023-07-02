@@ -44,6 +44,11 @@ Design and Implement a Restful API using Express, Mongoose, and TypeScript for t
       * update one course (`code` and `title`) and return the number of updated documents, only the course owner may update the course.
       * delete one course by ID and return the number of deleted documents, only the course owner may delete the course.
    * CRUD `lectures`
+      * add a new lecture (`title` and `description` and `file_url`), and return the newly created lecture ID. Only the course owner may add a new lecture. 
+      * get paginated lectures (use `$slice` projection operator to paginate over arrays).
+      * get one lecture by ID, the DB must only return the lecture object.
+      * update one lecture (`title` and `description` and `file_url`) and return the number of modified items, only the course owner may update the lecture.
+      * delete one lecture by ID and return the number of modified items, only the course owner may delete the lecture. 
    * CRUD `questions`
 * Implement a route to find the nearest 10 users that match a certain set of hobbies.
   
