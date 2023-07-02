@@ -38,9 +38,14 @@ Design and Implement a Restful API using Express, Mongoose, and TypeScript for t
 * Create a middleware that verifies all <ins>private</ins> requests, decrypt the JWT token, assign the token data to the `req.body['token_data']` object.
 * Implement CRUD operations on the following <ins>private</ins> entities:
    * CRUD `courses`
+      * add a new course (`code` and `title`), and fill out the `created_by` property from the JWT, and return the newly created document ID.
+      * get paginated courses sorted from newest to oldest
+      * get one course by ID
+      * update one course (`code` and `title`) and return the number of updated documents, only the course owner may update the course.
+      * delete one course by ID and return the number of deleted documents, only the course owner may delete the course.
    * CRUD `lectures`
    * CRUD `questions`
-* Implement a route to find the nearest 10 users that match certain set of hobbies.
+* Implement a route to find the nearest 10 users that match a certain set of hobbies.
   
 **Notes:**
 * Only the user who created the course should be able to perform CRUD operations on `lectures` and `questions`, 
