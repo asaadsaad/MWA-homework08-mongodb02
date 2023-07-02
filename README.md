@@ -1,64 +1,43 @@
 ## MWA - Homework - MongoDB
-Considering the following two schemas: `users` and `courses`. Example of the data:
-```typescript
-const users = [
-   {
-    _id: ObjectId("507f1f77bcf86cd799439011"),
-    name: { first: "Asaad", last: "Saad" },
-    email: "asaad@miu.edu",
-    password: "$2b$10$UotIg3ZQ4wp9hpWp8HyTJOdZhVL6efbDh8z8KTN1Khj8MQbrO/fc6",
-    location: [ -91.96746938624635, 41.01841654149492 ],
-    hobbies: ["Play violin", "Running", "Swimming", "Cooking"]
-   }
-];
-
-const courses = [
-   {
-    _id: ObjectId("507f191e810c19729de860ea"),
-    code: "CS572",
-    title: "Modern Web Application",
-    created_by: { user_id: ObjectId("507f1f77bcf86cd799439011"), name: { first: "Asaad", last: "Saad" }, email: "asaad@miu.edu" },
-    lectures: [
-       { title: "MongoDB part 1",
-         description: "In this lecture you will learn main concepts of NoSQL databases and how to perform CRUD operations with Mongoose",
-         file_url: "http://sakai.com/lecture06.pdf",
-         questions: [
-           { question: "How can we perform multiple updates on an array of elements?", due_date: 1688301486 },
-           { question: "Write a query to return all clients with remaining balance.", due_date: 1688301486 },
-         ],
-       }
-    ]
-  }
-];
-```  
-Design and Implement a Restful API using Express, Mongoose, and TypeScript for the following entities:
-* Public `POST /auth/signup` route to add a new faculty (use `bcrypt` and `jsonwebtoken` to hash the password and generate a JWT).
-* Public `POST /auth/signin` route to verify faculty credentials (return JWT).
+Given the models for two schemas: `users` and `courses`. And the sub-schema of `lectures` and `questions`.
+    
+<ins>Design and Implement a Restful API using Express, Mongoose, and TypeScript for the following entities:</ins>
+* Public `POST /auth/signup` route to add a new user (use `bcrypt` and `jsonwebtoken` to hash the password and generate a JWT).
+* Public `POST /auth/signin` route to verify the user credentials (return JWT).
 * Public `PUT /auth/password` route to change the password (return number of updated documents).
-* Create a middleware that verifies all <ins>private</ins> requests, decrypt the JWT token, assign the token data to the `req.body['token_data']` object.
-* Implement CRUD operations on the following <ins>private</ins> entities:
+* Create a middleware to verify all <ins>private</ins> requests. Decrypt the JWT token, assign the token details to `req.body['token_data']`.
+   
+<ins>Implement CRUD operations on the following private entities <span style="color: red">(READ QUERY AND RESPONSE REQUIREMENTS BELOW)</span>:</ins>
    * CRUD `courses`
-      * add a new course (`code` and `title`), and fill out the `created_by` property from the JWT, and return the newly created document ID.
+      * add a new course (`code` and `title`). Fill out the `created_by` property from the JWT.
       * get paginated courses sorted from newest to oldest, without any `lectures` details.
-      * get one course by ID
-      * update one course (`code` and `title`) and return the number of updated documents, only the course owner may update the course.
-      * delete one course by ID and return the number of deleted documents, only the course owner may delete the course.
+      * get one course by ID.
+      * update one course (`code` and `title`).
+      * delete one course by ID.
    * CRUD `lectures`
-      * add a new lecture (`title` and `description` and `file_url`), and return the newly created lecture ID. Only the course owner may add a new lecture. 
+      * add a new lecture (`title` and `description` and `file_url`).
       * get paginated lectures (use `$slice` projection operator to paginate over arrays).
-      * get one lecture by ID, the DB must only return the requested lecture object.
-      * update one lecture (`title` and `description` and `file_url`) and return the number of modified items, only the course owner may update the lecture.
-      * delete one lecture by ID and return the number of modified items, only the course owner may delete the lecture. 
+      * get one lecture by ID.
+      * update one lecture (`title` and `description` and `file_url`).
+      * delete one lecture by ID.
    * CRUD `questions`
-* Implement a route to find the nearest 10 users that match a certain set of hobbies.
+      * add a new question (`question` and `due_date`).
+      * get paginated questions (use the `$` and `$slice` projection operators).
+      * get one question by ID (you may temporary need to use a child process, ideally, an aggregation pipeline must be used)
+      * update one question (`title` and `due_date`).
+      * delete one question by ID. 
+   
+<ins>Geospacial implmentation:</ins>
+* Implement a route to find the nearest 10 users that match a certain set of hobbies. You will need to create a `2d` and `text` indexes.
   
-**Notes:**
-* Only the user who created the course should be able to perform CRUD operations on `lectures` and `questions`, 
-* `GET` results must be paginated (use `$slice` projection operator to paginate over arrays), and sorted from newest to oldest.
+**QUERY AND RESPONSE REQUIREMENTS:**
+* Only authenticated users may send requests to the <ins>private</ins> routes.
+* Only the user who created the course should be able to perform CUD operations on `courses` and `lectures` and `questions`. However, anyone can read the data.
+* `GET` results must always be paginated.
 * The standard response signature is `interface IResponse<T>{ success: boolean, results: T }`. Where `<T>` represents the returned type as follows:
    * `GET` all, must return `Entity[]` (with pagination).
    * `GET` one, must return `Entity`. (use child process for getting one question by id)
    * `POST` returns a `string` represents the `ObjectId` of the newly added object.
-   * `PUT` returns a `number` of how many documents were updated.
-   * `DELETE` returns a `number` of how many documents were deleted.
+   * `PUT` returns a `number` of how many objects were modifed.
+   * `DELETE` returns a `number` of how many objects were deleted/modifed.
   
