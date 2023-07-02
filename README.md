@@ -1,33 +1,63 @@
 # MWA - Homework - Mongodb
 ## Exercise
-Considering the following interfaces:
+Considering the following interfaces (add _id when applicable):
 ```typescript
-interface IFaculty { name: IName, email: string, password: string }
-interface ICourse { code: string, title: string, students: IStudent[] }
-interface IStudent { name: IName, exams: IExam[] }
+interface IUser { name: IName, email: string, password: string, location: number[], hobbies: string[] }
+interface ICourse { code: string, title: string, teacher: { name: IName, email: string }, lectures: ILecture[] }
+interface ILecture { title: string, description: string, file_url: string, questions: IQuestion[] }
+interface IQuestion { question: string, due_date: number }
 interface IName { first: string, last: string }
-interface IExam { date: number, grade: number }
 ```
-Design a Restful API using Express, Mongosee, and TypeScript for the following entities:
-* CRUD faculty + signin/signup
-* CRUD courses
-* CRUD students
-* CRUD exams
+The above interfaces manifest in two schemas: `teachers` and `courses`. Example of the data:
+```typescript
+const teachers = [
+   {
+    _id: ObjectId("507f1f77bcf86cd799439011"),
+    name: { first: "Asaad", last: "Saad" },
+    email: "asaad@miu.edu",
+    password: "$2b$10$UotIg3ZQ4wp9hpWp8HyTJOdZhVL6efbDh8z8KTN1Khj8MQbrO/fc6",
+    location: [ -91.96746938624635, 41.01841654149492 ],
+    hobbies: ["Play violin", "Running", "Swimming", "Cooking"]
+   }
+];
 
+const courses = [
+   {
+    _id: ObjectId("507f191e810c19729de860ea"),
+    code: "CS572",
+    title: "Modern Web Application",
+    teacher: { _id: ObjectId("507f1f77bcf86cd799439011"), name: { first: "Asaad", last: "Saad" }, email: "asaad@miu.edu" },
+    lectures: [
+       { title: "MongoDB part 1",
+         description: "In this lecture you will learn main concepts of NoSQL databases and how to perform CRUD operations with Mongoose",
+         file_url: "http://sakai.com/lecture06.pdf",
+         questions: [
+           { question: "How can we perform multiple updates on an array of elements?", due_date: 1688301486 },
+           { question: "Write a query to return all clients with remaining balance.", due_date: 1688301486 },
+         ],
+       }
+    ]
+  }
+];
+```  
+Design and Implement a Restful API using Express, Mongoose, and TypeScript for the following entities:
+* Public `POST /auth/signup` route to add a new faculty (use `bcrypt` and `jsonwebtoken` to hash the password and generate a JWT).
+* Public `POST /auth/signin` route to verify faculty credentials.
+* Public `PUT /auth/password` route to change the password.
+* Create a middleware that verifies all private requests.
+* Implement CRUD operations on the following private entities:
+   * CRUD `courses`
+   * CRUD `lectures`
+   * CRUD `questions`
+* Implement a route to find the nearest 10 users that match certain set of hobbies.
+  
 **Notes:**
-* All `GET` requests must be paginated, use a page size of 5. Use `$slice` projection operator to paginate over arrays.
-* All `PATCH` requests must partially update an entity.
-* All results must be sorted from newest to oldest.
-* Queries must be projected to only return the requested information.
-* In most cases, the DB server must prepare the results and Node must not manipulate the results. If you neeUse child process when applicable.
-
-## MongoDB Geospacial Exercise (Extra)
-Considering the following MongoDB schema for `geolocation` collection:
-```javascript
-{ name, category, location: [longitude, latitude]}
-```
-* Use [Compass](https://www.mongodb.com/try/download/compass) to insert a few locations around MIU campus, find the locations with Google Maps. *Note that Google Maps will give you coordination as `[Lat, Long]`. While MongoDB requires coordination to be saved as `[Long, Lat]`*   
-* Add `2d` index to `geolocation` collection to activate searching by the `location` property.
-* Write an API to find the nearest 3 points to MIU location `(lat: 41.017654, long: -91.9665342)`, Note that MIU location will be hard coded into your API, your search criteria may include a `category`.  
-Example: `http://localhost:3000/search?category=restaurant` will find the nearest 3 restaurants to MIU campus.
+* Only the user who created the course should be able to perform CRUD operations on `lectures` and `questions`, 
+* `GET` results must be paginated (use `$slice` projection operator to paginate over arrays), and must be sorted from newest to oldest.
+* Query results must be projected to only return the requested information. Use child process when applicable.
+   * `GET` all, must return IEntity[] (with pagination).
+   * `GET` one, must return IEntity.
+   * `POST` returns a string represent the ObjectId of the newly added object.
+   * `PUT` returns a number of how many documents were updated.
+   * `DELETE` returns a number of how many documents were deleted.
   
