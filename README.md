@@ -39,7 +39,7 @@ Design and Implement a Restful API using Express, Mongoose, and TypeScript for t
 * Implement CRUD operations on the following <ins>private</ins> entities:
    * CRUD `courses`
       * add a new course (`code` and `title`), and fill out the `created_by` property from the JWT, and return the newly created document ID.
-      * get paginated courses sorted from newest to oldest
+      * get paginated courses sorted from newest to oldest, without any `lectures` details.
       * get one course by ID
       * update one course (`code` and `title`) and return the number of updated documents, only the course owner may update the course.
       * delete one course by ID and return the number of deleted documents, only the course owner may delete the course.
