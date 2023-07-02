@@ -46,7 +46,7 @@ Design and Implement a Restful API using Express, Mongoose, and TypeScript for t
    * CRUD `lectures`
       * add a new lecture (`title` and `description` and `file_url`), and return the newly created lecture ID. Only the course owner may add a new lecture. 
       * get paginated lectures (use `$slice` projection operator to paginate over arrays).
-      * get one lecture by ID, the DB must only return the lecture object.
+      * get one lecture by ID, the DB must only return the requested lecture object.
       * update one lecture (`title` and `description` and `file_url`) and return the number of modified items, only the course owner may update the lecture.
       * delete one lecture by ID and return the number of modified items, only the course owner may delete the lecture. 
    * CRUD `questions`
