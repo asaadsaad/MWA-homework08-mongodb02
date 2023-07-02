@@ -35,8 +35,8 @@ Design and Implement a Restful API using Express, Mongoose, and TypeScript for t
 * Public `POST /auth/signup` route to add a new faculty (use `bcrypt` and `jsonwebtoken` to hash the password and generate a JWT).
 * Public `POST /auth/signin` route to verify faculty credentials.
 * Public `PUT /auth/password` route to change the password.
-* Create a middleware that verifies all private requests.
-* Implement CRUD operations on the following private entities:
+* Create a middleware that verifies all <u>private</u> requests.
+* Implement CRUD operations on the following <u>private</u> entities:
    * CRUD `courses`
    * CRUD `lectures`
    * CRUD `questions`
