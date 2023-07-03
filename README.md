@@ -45,3 +45,81 @@ Given the two models `users` and `courses`. And another two sub-schemas of `lect
    * `PUT` returns a `number` of how many objects were modifed.
    * `DELETE` returns a `number` of how many objects were deleted/modifed.
   
+## Data Samples:
+```typescript
+const user: IUser = {
+  "_id": {
+    "$oid": "64a1825210eedbc0a654c25e"
+  },
+  "name": {
+    "first": "Asaad",
+    "last": "Saad"
+  },
+  "email": "asaad@miu.edu",
+  "password": "$2b$10$DtZM7rvJAPOMGvVB2iNYS.FMYyrbC.a.RVneFK8TubHNYC7Zjg6HW",
+  "location": [
+    -91.96746938624635,
+    41.01841654149492
+  ],
+  "hobbies": [
+    "Play violin",
+    "Running",
+    "Swimming",
+    "Cooking"
+  ],
+  "createdAt": {
+    "$date": "2023-07-02T13:57:38.873Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-02T13:57:52.697Z"
+  }
+}
+```
+```typescript
+const course : ICourse = {
+  "_id": {
+    "$oid": "64a19828f12ae05bd2eb96ae"
+  },
+  "code": "CS572",
+  "title": "Modern Web Application",
+  "created_by": {
+    "user_id": {
+      "$oid": "64a1825210eedbc0a654c25e"
+    },
+    "fullname": "Asaad Saad",
+    "email": "asaad@miu.edu"
+  },
+  "lectures": [
+    {
+      "title": "Intro to MongoDB",
+      "description": "Learn how to perform CRUD operations on a collection",
+      "file_url": "http://sakai.com/lecture.pdf",
+      "_id": {
+        "$oid": "64a1cdc5230a5affe9644884"
+      },
+      "questions": [
+        {
+          "question": "Q1",
+          "due_date": 1688301486,
+          "_id": {
+            "$oid": "64a1dca13f20051f65d2144e"
+          }
+        },
+        {
+          "question": "Q2",
+          "due_date": 1688301486,
+          "_id": {
+            "$oid": "64a1dca73f20051f65d21451"
+          }
+        }
+      ]
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-02T15:30:48.250Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-02T20:30:56.813Z"
+  }
+}
+```
